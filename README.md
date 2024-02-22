@@ -1,52 +1,18 @@
-# Banking System - Java Swing Project
+# Salesforce DX Project: Next Steps
 
-## Description
-The Banking System is a Java Swing application that simulates basic banking operations. It provides a user-friendly interface for managing accounts, transactions, and other essential banking functions.
+Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
 
-## Features
-- Account creation and management
-- Deposit and withdrawal transactions
-- Balance inquiry
-- Transaction history
-- User-friendly GUI with Java Swing
+## How Do You Plan to Deploy Your Changes?
 
-## Screenshots
-![Screenshot 1](screenshot/1.png)
-![Screenshot 2](screenshot/2.png)
+Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
 
-## Technologies Used
-- Java
-- Java Swing for GUI
+## Configure Your Salesforce DX Project
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/banking-system.git
-   cd banking-system
-   
-   ```
-2. Run Project
-   ```bash
-   javac Main.java
-   java Main
-   ```
-## Usage
-1. Launch the application.
-2. Follow the on-screen instructions to perform banking operations.
+The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
 
-## Contribution
-Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
+## Read All About It
 
-1. Fork the repository
-2. Create a new branch (git checkout -b feature/new-feature)
-3. Commit your changes (git commit -m 'Add new feature')
-4. Push to the branch (git push origin feature/new-feature)
-5. Create a pull request
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-- Thanks to Java for the programming language.
-- Special thanks to Java Swing for the GUI components.
-- Feel free to customize the content according to your project's specific details. Add more sections or information as needed.
+- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
+- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
+- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
+- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)

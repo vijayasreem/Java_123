@@ -1,0 +1,26 @@
+<aura:component>
+    <aura:attribute name="loanId" type="String" default=""/>
+    <aura:attribute name="loanApplication" type="LoanApplication__c"/>
+    <aura:attribute name="error" type="String" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div>
+        <lightning:input name="loanId" label="Loan ID" value="{!v.loanId}" required="true"/>
+        <lightning:button label="Retrieve" onclick="{!c.retrieveLoanApplication}"/>
+    </div>
+    
+    <aura:if isTrue="{!not(empty(v.loanApplication))}">
+        <div>
+            <p>Loan Application Details:</p>
+            <p>Email: {!v.loanApplication.Email__c}</p>
+            <!-- Include other loan application details here -->
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!not(empty(v.error))}">
+        <div>
+            <p>Error: {!v.error}</p>
+        </div>
+    </aura:if>
+</aura:component>
