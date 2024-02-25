@@ -20,15 +20,9 @@ import javax.swing.Icon;
 
 public class Menu extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	/**
-	 * Create the frame.
-	 */
 	public Menu() {
 		setTitle("Banking System");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -40,7 +34,6 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
 		JLabel lblBankingSystem = new JLabel("Banking System");
 		lblBankingSystem.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBankingSystem.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -49,29 +42,17 @@ public class Menu extends JFrame {
 		
 		FileIO.Read();
 		
-//		JButton btnAddAccount = new JButton("Add Account");
-//		btnAddAccount.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				if(!GUIForm.addaccount.isVisible())
-//				{
-//					GUIForm.addaccount.setVisible(true);
-//				}
-//				else
-//				{
-//					JOptionPane.showMessageDialog(getComponent(0), "Already Opened", "Warning", 0);
-//				}
-//				
-//			}
-//		});
-//		btnAddAccount.setBounds(217, 162, 194, 40);
-//		contentPane.add(btnAddAccount);
-		
 		JButton btnDepositToAccount = new JButton("Deposit To Account");
 		btnDepositToAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!GUIForm.depositacc.isVisible())
 				{
 					GUIForm.depositacc.setVisible(true);
+					GUIForm.depositacc.addAccountNumberField();
+					GUIForm.depositacc.addAccountHolderNameField();
+					GUIForm.depositacc.addBankBranchField();
+					GUIForm.depositacc.addIfscCodeField();
+					GUIForm.depositacc.addAmountField();
 				}
 				else
 				{
@@ -89,6 +70,11 @@ public class Menu extends JFrame {
 				if(!GUIForm.withdraw.isVisible())
 				{
 					GUIForm.withdraw.setVisible(true);
+					GUIForm.withdraw.addAccountNumberField();
+					GUIForm.withdraw.addAccountHolderNameField();
+					GUIForm.withdraw.addBankBranchField();
+					GUIForm.withdraw.addIfscCodeField();
+					GUIForm.withdraw.addAmountField();
 				}
 				else
 				{
@@ -155,7 +141,6 @@ public class Menu extends JFrame {
 		lblNewLabel.setBounds(397, 166, 216, 213);
 		contentPane.add(lblNewLabel);
 		
-		//Image image=GenerateImage.toImage(true);  //this generates an image file
 		ImageIcon icon = new ImageIcon("1.png");
 	}
 }
