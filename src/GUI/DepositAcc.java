@@ -20,19 +20,21 @@ import java.awt.SystemColor;
 
 public class DepositAcc extends JFrame implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private static boolean isOpen = false;
 
-	
-	/**
-	 * Create the frame.
-	 */
 	public DepositAcc() {
+		if(isOpen) {
+			JOptionPane.showMessageDialog(null, "Window is already open");
+			return;
+		}
+		isOpen = true;
 		setTitle("Deposit To Account");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -58,38 +60,61 @@ public class DepositAcc extends JFrame implements Serializable {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		JLabel lblHolderName = new JLabel("Account Holder Name:");
+		lblHolderName.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblHolderName.setBounds(0, 116, 111, 14);
+		contentPane.add(lblHolderName);
+		
 		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(121, 147, 211, 20);
+		textField_1.setBounds(121, 113, 211, 20);
 		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblBankBranch = new JLabel("Bank Branch:");
+		lblBankBranch.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblBankBranch.setBounds(0, 146, 111, 14);
+		contentPane.add(lblBankBranch);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(121, 143, 211, 20);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblIfscCode = new JLabel("IFSC Code:");
+		lblIfscCode.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIfscCode.setBounds(0, 176, 111, 14);
+		contentPane.add(lblIfscCode);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(121, 173, 211, 20);
+		contentPane.add(textField_3);
+		textField_3.setColumns(10);
 		
 		JLabel lblAmount = new JLabel("Amount:");
 		lblAmount.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblAmount.setBounds(0, 150, 111, 14);
+		lblAmount.setBounds(0, 206, 111, 14);
 		contentPane.add(lblAmount);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(121, 203, 211, 20);
+		contentPane.add(textField_4);
+		textField_4.setColumns(10);
 		
 		JButton btnDeposit = new JButton("Deposit");
 		btnDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//FileIO file=new FileIO();
-				//Bank bank =file.Read();
 				String aacountNum;
 				double amt;
 				aacountNum=textField.getText();
-				amt=Double.parseDouble(textField_1.getText());
+				amt=Double.parseDouble(textField_4.getText());
 				int a=JOptionPane.showConfirmDialog(getComponent(0), "Confirm?");
 				if(a==0)
 				{
 				try {
-					
-						
 						FileIO.bank.deposit(aacountNum, amt);
 						JOptionPane.showMessageDialog(getComponent(0),"Deposit Successful");
 						dispose();
-					
-						textField.setText(null);
-						textField_1.setText(null);
-					
+						isOpen = false;
 				} 
 				catch (InvalidAmount e1) {
 					JOptionPane.showMessageDialog(getComponent(0), "Sorry! Deposit Amount is Invalid");
@@ -100,9 +125,11 @@ public class DepositAcc extends JFrame implements Serializable {
 				}
 				finally
 				{
-					//file.Write(bank);
 					textField.setText(null);
 					textField_1.setText(null);
+					textField_2.setText(null);
+					textField_3.setText(null);
+					textField_4.setText(null);
 				}
 				
 					
@@ -111,6 +138,9 @@ public class DepositAcc extends JFrame implements Serializable {
 				{
 					textField.setText(null);
 					textField_1.setText(null);
+					textField_2.setText(null);
+					textField_3.setText(null);
+					textField_4.setText(null);
 				}
 				
 					
@@ -118,11 +148,11 @@ public class DepositAcc extends JFrame implements Serializable {
 				
 			}
 		});
-		btnDeposit.setBounds(73, 212, 89, 23);
+		btnDeposit.setBounds(73, 234, 89, 23);
 		contentPane.add(btnDeposit);
 		
 		JButton btnReset = new JButton("Reset");
-		btnReset.setBounds(243, 212, 89, 23);
+		btnReset.setBounds(243, 234, 89, 23);
 		contentPane.add(btnReset);
 		
 		btnReset.addActionListener(new ActionListener() {
@@ -130,6 +160,9 @@ public class DepositAcc extends JFrame implements Serializable {
 			
 				textField.setText(null);
 				textField_1.setText(null);
+				textField_2.setText(null);
+				textField_3.setText(null);
+				textField_4.setText(null);
 			}
 		});
 	}
